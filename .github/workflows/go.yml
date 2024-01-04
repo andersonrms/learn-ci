@@ -14,7 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print
-        run: echo ${{ secrets.variavel }}
+        run: 'echo "$SECRET_VARIABLE"' 
+        env:
+          SECRET_VARIABLE: ${{ secrets.test }}
         
 
   test:
