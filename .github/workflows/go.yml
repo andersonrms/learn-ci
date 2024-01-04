@@ -16,7 +16,7 @@ jobs:
       - name: print
         run: 'echo "$SECRET_VARIABLE"' 
         env:
-          SECRET_VARIABLE: ${{ secrets.test }}
+          SECRET_VARIABLE: ${{ secrets.TESTE }}
         
 
   test:
