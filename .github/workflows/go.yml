@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: print
         run: 'echo "$SECRET_VARIABLE"' 
+        shell: bash
         env:
           SECRET_VARIABLE: ${{ secrets.TESTE }}
         
