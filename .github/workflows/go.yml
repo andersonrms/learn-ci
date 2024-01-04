@@ -10,6 +10,12 @@ on:
     branches: [ "master" ]
 
 jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print
+        run: echo ${{ secrets.variavel }}
+        
 
   test:
     runs-on: ubuntu-latest
