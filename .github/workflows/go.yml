@@ -19,19 +19,20 @@ jobs:
         env:
           SECRET_VARIABLE: ${{ secrets.TESTE }}
         
-
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         go_version: ['1.20', '1.18', '>=1.20']
+        os: ['ubuntu-latest', 'ubuntu-18.04']
     steps:
     - uses: actions/checkout@v3
 
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: ${{ matrix.go_version }}
+        go-version: ${{ matrix.go_version }}  
+        os: ${{ matrix.os }}
 
     - name: Build-DB
       run: docker-compose build
@@ -44,7 +45,7 @@ jobs:
       
   build:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
     - name: build
