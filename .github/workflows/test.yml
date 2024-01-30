@@ -4,6 +4,8 @@
 name: Go
 
 on:
+  workflow_run:
+    workflows: [test]
   push:
     branches: [ '*' ]
   pull_request:
